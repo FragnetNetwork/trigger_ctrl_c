@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h> 
-#include <strsafe.h>
 #include <windows.h>
 #include <stdbool.h>
+#include <strsafe.h>
 
 void logLastError() 
 { 
@@ -29,7 +29,7 @@ void logLastError()
 
 void triggerCtrlC(int pid)
 {
-    printf("Triggering CTRL+C on PID %d", pid)
+    printf("Triggering CTRL+C on PID %d", pid);
     FreeConsole();
     if (AttachConsole(pid))
     {
