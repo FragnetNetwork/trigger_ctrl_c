@@ -29,15 +29,16 @@ void logLastError()
 
 void triggerCtrlC(int pid)
 {
-  FreeConsole();
-  if (AttachConsole(pid))
-  {
-    SetConsoleCtrlHandler(NULL, true);
-    GenerateConsoleCtrlEvent(CTRL_C_EVENT , 0);
-  }
-  else {
-      logLastError();
-  }
+    printf("Triggering CTRL+C on PID %d", pid)
+    FreeConsole();
+    if (AttachConsole(pid))
+    {
+        SetConsoleCtrlHandler(NULL, true);
+        GenerateConsoleCtrlEvent(CTRL_C_EVENT , 0);
+    }
+    else {
+        logLastError();
+    }
 }
 
 int main( int argc, const char* argv[] ) {
